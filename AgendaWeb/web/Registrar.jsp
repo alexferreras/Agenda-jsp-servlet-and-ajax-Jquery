@@ -12,62 +12,53 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    
-	<link rel="icon" href="image/logo.jpg">
     <meta name="description" content="">
     <meta name="author" content="">
 
     <title>Do something diferent</title>
-
     <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="css/scrolling-nav.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
     <!-- jQuery called-->
-    <script src="vendor/jquery/jquery.js"></script>
-    <!--Adamix method -->
-
-
+    <script src="Js/jquery.js"></script>
+  
 </head>
 
-<body id="page-top">
 
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
-        <div class="container">
-            <a class="navbar-brand js-scroll-trigger" href="/AgendaWeb/Index.jsp">Inicio</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-            <div class="collapse navbar-collapse" id="navbarResponsive">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/AgendaWeb/AgregarContacto.jsp">Agregar Contacto</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/AgendaWeb/Registrar.jsp">Registrarse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="/AgendaWeb/Login.jsp">Loguiarse</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="#contact">Salir</a>
-                    </li>
-                </ul>
-               
-            </div>
-        </div>
-    </nav>
+    <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.jsp">Inicio</a> 
+    </div>
 
-    
-    
-    
-        
-    
-    
-    
-    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+      
+      <ul class="nav navbar-nav navbar-right">
+           <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="AgregarContacto.jsp">Agregar Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="Registrar.jsp">Registrarse</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="Login.jsp">Loguiarse</a>
+                    </li>
+        <li class="nav-item">
+           <a class="nav-link js-scroll-trigger" href="#contact">Salir</a>
+        </li>
+      </ul>
+   
+  </div><!-- /.container-fluid -->
+</nav>
+  
+
 <br><br><br>   
 <br><br><br>   
 <br><br><br>
@@ -89,7 +80,7 @@
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
 
     <!-- Custom JavaScript for this theme -->
-    <script src="js/scrolling-nav.js"></script>
+    <script src="Js/scrolling-nav.js"></script>
 
 </body>
 

@@ -67,6 +67,20 @@ public class Consultas extends DBconnection{
         
     }
     
+       public List<Contacto> Buscar(String sql) throws SQLException, ClassNotFoundException{
+        Conectar();
+        ArrayList<Contacto> contacto= new ArrayList<>(); 
+        estado= con.prepareStatement(sql);
+        rs= estado.executeQuery();
+        while(rs.next()){
+        Contacto c= new Contacto(rs.getInt("id"), rs.getString("nombre"), rs.getString("apellido"),rs.getString("telefono"), rs.getString("direccion"),rs.getString("correo"),rs.getInt("status"),rs.getString("fecha"));
+       contacto.add(c);
+        }
+       Desconectar();
+       
+       return contacto;
+        
+    }
     
    
     

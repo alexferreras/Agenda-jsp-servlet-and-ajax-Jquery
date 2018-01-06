@@ -1,8 +1,5 @@
 package Clases;
 
-
-
-
 public class Contacto {
     
     
@@ -59,6 +56,16 @@ public class Contacto {
         this.fecha = fecha;
     }
 
+     public Contacto(int id, String nombre, String apellido, String telefono, String direccion, String Correo) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.Correo = Correo;
+        this.status = status;
+        this.fecha = fecha;
+    }
 
     
 
