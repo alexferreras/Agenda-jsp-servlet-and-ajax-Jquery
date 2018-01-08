@@ -74,7 +74,7 @@
         if(request.getParameter("page")!=null){
          pages =request.getParameter("page");
         }
-        pages= pages+".jsp";
+        pages="WEB-INF/"+pages+".jsp";
         %>
         <jsp:include page="<%=pages%>"></jsp:include>
       
