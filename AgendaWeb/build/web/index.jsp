@@ -30,7 +30,7 @@
     <script src="Js/jquery.js"></script>
   
 </head>
-
+<body>
 
     <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top navbar-inverse">
@@ -43,20 +43,20 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.jsp">Inicio</a> 
+      <a class="navbar-brand" href="index.jsp?page=inicio">Inicio</a> 
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
       
       <ul class="nav navbar-nav navbar-right">
            <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="AgregarContacto.jsp">Agregar Contacto</a>
+                        <a class="nav-link js-scroll-trigger" href="index.jsp?page=AgregarContacto">Agregar Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="Registrar.jsp">Registrarse</a>
+                        <a class="nav-link js-scroll-trigger" href="index.jsp?page=Registrar">Registrarse</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="Login.jsp">Loguiarse</a>
+                        <a class="nav-link js-scroll-trigger" href="index.jsp?page=Login">Loguiarse</a>
                     </li>
         <li class="nav-item">
            <a class="nav-link js-scroll-trigger" href="#contact">Salir</a>
@@ -65,70 +65,23 @@
    
   </div><!-- /.container-fluid -->
 </nav>
-  
+    
     <div class="col col-sm-2"></div>
     <div class="container col col-sm-8" style="margin-top: 100px;">
-        
-<% 
-Consultas cs= new Consultas();
-
-ArrayList<Contacto> cont = null;
-        try {
-           cont=( ArrayList<Contacto>)cs.Buscar();
-        } catch (SQLException ex) {
-            ex.printStackTrace();
-        } catch (ClassNotFoundException ex) {
-           ex.printStackTrace();
+        <%
+            String pages= "inicio";
+           
+        if(request.getParameter("page")!=null){
+         pages =request.getParameter("page");
         }
-            
-%>
-<center>
-<h1>Mis Contactos</h1> 
-
- <div class="table-responsive ">
-     <table class="table table-bordred table-striped" style=" border-bottom: 1px solid #ddd; border:1px solid #ddd ">
-                <thead>
-                
-                <th>Nombre Completo</th>
-                <th>Telefono</th>
-                <th>Direccion</th>
-                <th>Correo</th>
-                <th>Fecha Ingreso</th>
-                <th>Editar</th>
-                  <th>Eliminar</th> 
-                </thead>
-                <tbody>
-              
-                <% for (int i =0; i<cont.size(); i++){%>
-                <tr>
-                    
-                    <td><%= cont.get(i).getNombre()+" "+cont.get(i).getApellido() %></td>
-                    <td><%= cont.get(i).getTelefono() %></td>
-                   <td><%= cont.get(i).getDireccion() %></td>
-                   <td><%= cont.get(i).getCorreo()%></td>
-                   <td><%= cont.get(i).getFecha()%></td>
-                    <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a class="btn btn-primary btn-ms" href="editarContacto.jsp?id=<%=cont.get(i).getId()%>"  >Editar</a></p></td>
-                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a class="btn btn-danger btn-ms" href="eliminarContacto.jsp?id=<%=cont.get(i).getId()%>" >Eliminar</a></p></td>
-    
-                  
-                </tr>
-               <%}%>                
-                </tbody>           
-            </table>
-    </div>
- </center>  
-                
-</div>
-             
+        pages= pages+".jsp";
+        %>
+        <jsp:include page="<%=pages%>"></jsp:include>
       
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-        <div class="container">
-            <p class="m-0 text-center text-white">Alex Ferreras &copy; Contact Saver 2017</p>
-        </div>
-        <!-- /.container -->
-    </footer>
-
+       
+    </div>
+        <div class="col col-sm-2"></div>       
+  
     <!-- Bootstrap core JavaScript -->
 
     <script src="vendor/popper/popper.min.js"></script>
@@ -140,7 +93,7 @@ ArrayList<Contacto> cont = null;
     <!-- Custom JavaScript for this theme -->
     <script src="Js/scrolling-nav.js"></script>
 
-
+</body>
 
 </html>
 

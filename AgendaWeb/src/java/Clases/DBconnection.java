@@ -13,7 +13,7 @@ import java.util.Date;
 public class DBconnection {
     String host="localhost";
     String user ="root";
-    String password="";
+    String password="admin";
     String db="agendaweb";
     Connection con;
     PreparedStatement estado;

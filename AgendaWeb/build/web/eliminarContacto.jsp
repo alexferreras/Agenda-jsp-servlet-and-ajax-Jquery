@@ -18,7 +18,7 @@
             int id= Integer.parseInt(request.getParameter("id"));
             Consultas cs = new Consultas();
             cs.eliminar(id);
-            RequestDispatcher rd= request.getRequestDispatcher("index.jsp");
+            RequestDispatcher rd= request.getRequestDispatcher("index.jsp?page=inicio");
             rd.forward(request, response);
         %>
         
