@@ -13,14 +13,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/alexf/Documents/NetBeansProjects/AgendaWeb/web/index.jsp</file>
-            <file>file:/C:/Users/alexf/Documents/NetBeansProjects/AgendaWeb/web/inicio.jsp</file>
             <file>file:/C:/Users/alexf/Documents/NetBeansProjects/AgendaWeb/src/java/servlret/HomeRegistro.java</file>
-            <file>file:/C:/Users/alexf/Documents/NetBeansProjects/AgendaWeb/web/editarContacto.jsp</file>
-            <file>file:/C:/Users/alexf/Documents/NetBeansProjects/AgendaWeb/src/java/Clases/Consultas.java</file>
-            <file>file:/C:/Users/alexf/Documents/NetBeansProjects/AgendaWeb/src/java/servlret/Editor.java</file>
+            <file>file:/C:/Users/alexf/Documents/NetBeansProjects/AgendaWeb/web/Js/main.js</file>
             <file>file:/C:/Users/alexf/Documents/NetBeansProjects/AgendaWeb/web/AgregarContacto.jsp</file>
-            <file>file:/C:/Users/alexf/Documents/NetBeansProjects/AgendaWeb/src/java/Clases/DBconnection.java</file>
-            <file>file:/C:/Users/alexf/Documents/NetBeansProjects/AgendaWeb/web/eliminarContacto.jsp</file>
         </group>
     </open-files>
 </project-private>

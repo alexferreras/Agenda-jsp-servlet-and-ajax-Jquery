@@ -2,6 +2,7 @@ package servlret;
 import Clases.Consultas;
 import Clases.Contacto;
 import java.io.IOException;
+import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,17 +32,21 @@ public class HomeRegistro extends HttpServlet {
         c.setTelefono(telefono);
         c.setCorreo(correo);
         Consultas cs = new Consultas();
+        String msj= "exito";
         try {
             cs.Guardar(c);
         } catch (SQLException ex) {
            ex.printStackTrace();
+           msj = ex.getMessage();
         } catch (ClassNotFoundException ex) {
           ex.printStackTrace();
+           msj = ex.getMessage();
         }
       
         
-        RequestDispatcher rd = request.getRequestDispatcher("index.jsp?page=inicio");
-        rd.forward(request, response);
+        response.setContentType("text/html;charset=UTF-8");
+        PrintWriter out = response.getWriter();
+        out.write(msj);
       
     }
 

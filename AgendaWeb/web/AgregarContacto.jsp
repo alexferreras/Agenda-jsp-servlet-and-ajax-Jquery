@@ -9,7 +9,7 @@
 <center><h1 class="h1">Ingresar Contacto</h1></center>
 <div class="col col-sm-3"></div>
     <div class="container col col-sm-6">
-        <form action="HomeRegistro" method="POST">
+        <form id="formagregar">
             
                 <div class="form-group">
                 <label for="nombre" >Nombre:</label>
@@ -36,7 +36,7 @@
                 <input type="text" class="form-control" id="direccion" name="direccion"/>
                 </div>
             
-            <input class="btn btn-primary active right" type="submit" value="Registrar">
+            <input class="btn btn-primary active right" type="button" id="agregar" value="Registrar">
             
             <input class="btn btn-danger active left" type="reset" value="Limpiar">
         </form>

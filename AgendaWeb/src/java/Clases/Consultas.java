@@ -26,7 +26,7 @@ public class Consultas extends DBconnection{
     
     public void Editar(Contacto contacto) throws SQLException, ClassNotFoundException{
         Conectar();
-        String sql = "update contacto set nombre = ?, apellido = ?,telefono= ?, direccion =?,correo=?,status=?, fecha=? "+"where id = ?";
+        String sql = "update contacto set nombre = ?, apellido = ?,telefono= ?, direccion =?,correo=?,status=?, fecha=? "+"where contactoId = ?";
         estado= con.prepareStatement(sql);
         estado.setString(1, contacto.getNombre());
         estado.setString(2, contacto.getApellido());

@@ -7,7 +7,6 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="Clases.Contacto"%>
 <%@page import="Clases.Consultas"%>
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 
     <% 
@@ -23,7 +22,7 @@
   <center><h1 class="h1">Editar Contacto</h1></center>
 <div class="col col-sm-3"></div>
     <div class="container col col-sm-6">
-        <form action="Editor" method="POST">
+        <form id="formeditor">
             <%
              for(int i=0;i < ListaContacto.size();i++ ){
             %>
@@ -33,33 +32,32 @@
                 </div>
                 
                 <div class="form-group">
-                <label for="nombre" >Nombre:</label>
-                <input type="text" class="form-control" value="<%=ListaContacto.get(i).getNombre()%>" id="nombre" name="nombre" required>
+                <label for="ednombre" >Nombre:</label>
+                <input type="text" class="form-control" value="<%=ListaContacto.get(i).getNombre()%>"  name="ednombre" required>
                 </div>
                 
                 <div class="form-group">
-                <label for="apellido"  >Apellido:</label>
-                <input type="text" class="form-control" value="<%=ListaContacto.get(i).getApellido()%>" id="apellido" name="apellido" required/>
+                <label for="edapellido"  >Apellido:</label>
+                <input type="text" class="form-control" value="<%=ListaContacto.get(i).getApellido()%>"  name="edapellido" required/>
                 </div>
                 
                 <div class="form-group">
-                <label for="correo"  >Correo</label>
-                <input type="email" class="form-control" value="<%=ListaContacto.get(i).getCorreo()%>" id="correo" name="correo"/>
+                <label for="edcorreo"  >Correo</label>
+                <input type="email" class="form-control" value="<%=ListaContacto.get(i).getCorreo()%>"  name="edcorreo"/>
                 </div>
             
                 <div class="form-group">
-                <label for="telefono"  >Telefono</label>
-                <input type="text" class="form-control" id="telefono" value="<%=ListaContacto.get(i).getTelefono()%>" name="telefono" required/>
+                <label for="edtelefono"  >Telefono</label>
+                <input type="text" class="form-control"  value="<%=ListaContacto.get(i).getTelefono()%>" name="edtelefono" required/>
                 </div>
             
                 <div class="form-group">
-                <label for="direccion"  >Direccion</label>
-                <input type="text" class="form-control" id="direccion" value="<%=ListaContacto.get(i).getDireccion()%>" name="direccion"/>
+                <label for="eddireccion"  >Direccion</label>
+                <input type="text" class="form-control"  value="<%=ListaContacto.get(i).getDireccion()%>" name="eddireccion" />
                 </div>
             
-            <input class="btn btn-primary active right" type="submit" value="Editar">
+                <input class="btn btn-primary active right" type="button" id="editar" value="Editar">
             
-            <input class="btn btn-danger active left" type="reset" value="Limpiar">
             <%}%>
         </form>
         

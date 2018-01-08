@@ -27,7 +27,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- jQuery called-->
-    <script src="Js/jquery.js"></script>
+    
   
 </head>
 <body>
@@ -82,17 +82,9 @@
     </div>
         <div class="col col-sm-2"></div>       
   
-    <!-- Bootstrap core JavaScript -->
-
-    <script src="vendor/popper/popper.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.min.js"></script>
-
-    <!-- Plugin JavaScript -->
-    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-
-    <!-- Custom JavaScript for this theme -->
-    <script src="Js/scrolling-nav.js"></script>
-
+    
+    <script src="Js/jquery.min.js"></script>
+    <script src="Js/main.js"></script>
 </body>
 
 </html>
