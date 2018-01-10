@@ -1,18 +1,21 @@
 
+<%@page import="Pojo.Usuario"%>
+<%@page import="Pojo.Contacto"%>
+<%@page import="Clases.ContactoDao"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="java.util.List"%>
 <%@page import="java.sql.SQLException"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Clases.Contacto"%>
-<%@page import="Clases.Consultas"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
         
 <% 
-Consultas cs= new Consultas();
+ContactoDao cs= new ContactoDao();
 
 ArrayList<Contacto> cont = null;
+ Usuario user = (Usuario) session.getAttribute("usuario");
+ int id=  user.getId();
         try {
-           cont=( ArrayList<Contacto>)cs.Buscar();
+           cont=( ArrayList<Contacto>)cs.Buscar(id);
         } catch (SQLException ex) {
             ex.printStackTrace();
         } catch (ClassNotFoundException ex) {
@@ -21,11 +24,13 @@ ArrayList<Contacto> cont = null;
             
 %>
 <center>
-<h1>Mis Contactos</h1> 
+    
 
  <div class="table-responsive ">
+    
      <table class="table table-bordred table-striped" style=" border-bottom: 1px solid #ddd; border:1px solid #ddd ">
-                <thead>
+         <h1 class="table-title">Mis Contactos ${usuario.nombre}</h1>        
+         <thead>
                 
                 <th>Nombre Completo</th>
                 <th>Telefono</th>
@@ -46,7 +51,7 @@ ArrayList<Contacto> cont = null;
                    <td><%= cont.get(i).getCorreo()%></td>
                    <td><%= cont.get(i).getFecha()%></td>
                     <td><p data-placement="top" data-toggle="tooltip" title="Edit"><a class="btn btn-primary btn-ms" href="index.jsp?page=editarContacto&id=<%=cont.get(i).getId()%>"  >Editar</a></p></td>
-                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><a class="btn btn-danger btn-ms" href="index.jsp?page=eliminarContacto&id=<%=cont.get(i).getId()%>" >Eliminar</a></p></td>
+                    <td><p data-placement="top" data-toggle="tooltip" title="Delete"><button class="btn btn-danger btn-ms" onclick="eliminar(this)" id="<%=cont.get(i).getId()%>">Eliminar</button></p></td>
     
                   
                 </tr>
@@ -57,4 +62,4 @@ ArrayList<Contacto> cont = null;
  </center>  
                 
 
-
+ 

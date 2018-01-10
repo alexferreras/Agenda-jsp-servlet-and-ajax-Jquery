@@ -4,15 +4,15 @@
     Author     : alexf
 --%>
 
+<%@page import="Clases.ContactoDao"%>
 <%@page import="java.util.ArrayList"%>
-<%@page import="Clases.Contacto"%>
-<%@page import="Clases.Consultas"%>
+<%@page import="Pojo.Contacto"%>
 
 
     <% 
     int id =Integer.parseInt( request.getParameter("id") );
     String sql="select * from contacto where contactoId="+id;
-    Consultas cs = new Consultas();
+    ContactoDao cs = new ContactoDao();
     
     ArrayList<Contacto>ListaContacto = (ArrayList<Contacto>)cs.Buscar(sql);
   

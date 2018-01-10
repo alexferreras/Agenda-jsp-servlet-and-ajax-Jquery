@@ -1,6 +1,7 @@
 package servlret;
-import Clases.Consultas;
-import Clases.Contacto;
+import Clases.ContactoDao;
+import Pojo.Contacto;
+import Pojo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.SQLException;
 import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpSession;
 
 @WebServlet(name = "HomeRegistro", urlPatterns = {"/HomeRegistro"})
 public class HomeRegistro extends HttpServlet {
@@ -18,8 +20,11 @@ public class HomeRegistro extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        HttpSession session = request.getSession(true);
+        Usuario user = (Usuario) session.getAttribute("usuario");
+       
+        int id=  user.getId();
         
-          
         String nombre = request.getParameter("nombre");
         String apellido = request.getParameter("apellido");
         String telefono = request.getParameter("telefono");
@@ -31,10 +36,10 @@ public class HomeRegistro extends HttpServlet {
         c.setDireccion(direccion);
         c.setTelefono(telefono);
         c.setCorreo(correo);
-        Consultas cs = new Consultas();
+        ContactoDao cs = new ContactoDao();
         String msj= "exito";
         try {
-            cs.Guardar(c);
+            cs.Guardar(c, id);
         } catch (SQLException ex) {
            ex.printStackTrace();
            msj = ex.getMessage();

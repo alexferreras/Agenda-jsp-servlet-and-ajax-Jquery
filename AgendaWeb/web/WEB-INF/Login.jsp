@@ -1,52 +1,22 @@
 <%-- 
-    Document   : Login
-    Created on : 08-dic-2017, 12:32:55
+    Document   : login
+    Created on : 10-ene-2018, 13:16:33
     Author     : alexf
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<!DOCTYPE html>
 
-    
-     <div class="container">
-  <h2>Modal Login Example</h2>
-  
-
-  <!-- Modal -->
-  <div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-    
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header" style="padding:35px 50px;">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4><span class="glyphicon glyphicon-lock"></span> Login</h4>
-        </div>
-        <div class="modal-body" style="padding:40px 50px;">
-          <form role="form">
-            <div class="form-group">
-              <label for="usrname"><span class="glyphicon glyphicon-user"></span> Username</label>
-              <input type="text" class="form-control" id="usrname" placeholder="Enter email">
-            </div>
-            <div class="form-group">
-              <label for="psw"><span class="glyphicon glyphicon-eye-open"></span> Password</label>
-              <input type="text" class="form-control" id="psw" placeholder="Enter password">
-            </div>
-            <div class="checkbox">
-              <label><input type="checkbox" value="" checked>Remember me</label>
-            </div>
-              <button type="submit" class="btn btn-success btn-block"><span class="glyphicon glyphicon-off"></span> Login</button>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="submit" class="btn btn-danger btn-default pull-left" data-dismiss="modal"><span class="glyphicon glyphicon-remove"></span> Cancel</button>
-          <p>Not a member? <a href="#">Sign Up</a></p>
-          <p>Forgot <a href="#">Password?</a></p>
-        </div>
-      </div>
-      
-    </div>
-  </div> 
-</div>
-
+<form id="loginform"  class="formulario animated bounceInLeft " accept-charset="utf-8">
+		<h2 class="titulo animated bounceInDown" >Ingrese sus Datos</h2>
+		<div>
+		<input type="email" name="correo" placeholder="Correo" class="correo input"  required/>
+		<input type="password" name="contraseña" class=" input"  placeholder="Contraseña" required/>
+		<br>
+                <div id="msj" style="color: red;" ></div>
+                <br>
+                <input type="button" id="loginaction" class="boton input" name="Entrar" value="Entrar"/>
+		<input type="reset" class="boton input" name="Borrar" value="Limpiar"/>
+		</div>
+		<p class="registrarse">¿ya tienes una cuenta? no? <a href="index.html?page=Registrar" class="rel">Ingresa aquí,</a>
+		</p>
+</form>

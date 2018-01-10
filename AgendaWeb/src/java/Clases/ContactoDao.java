@@ -1,16 +1,18 @@
 
 package Clases;
 
+import Clases.DBconnection;
+import Pojo.Contacto;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Consultas extends DBconnection{
+public class ContactoDao extends DBconnection{
     
     
-    public void Guardar(Contacto contacto) throws SQLException, ClassNotFoundException{
+    public void Guardar(Contacto contacto, int id) throws SQLException, ClassNotFoundException{
         Conectar();
-        String sql="insert into contacto(nombre, apellido ,telefono , direccion,correo,status, fecha)"+"values(?, ?, ?, ?, ?, ?, ?)";
+        String sql="insert into contacto(nombre, apellido ,telefono , direccion,correo,status, fecha, usuario_id)"+"values(?, ?, ?, ?, ?, ?, ?, ?)";
         estado= con.prepareStatement(sql);
         estado.setString(1, contacto.getNombre());
         estado.setString(2, contacto.getApellido());
@@ -19,6 +21,7 @@ public class Consultas extends DBconnection{
          estado.setString(5, contacto.getCorreo());
          estado.setInt(6, 0);
         estado.setString(7,fecha );
+        estado.setInt(8, id);
         estado.execute();
         System.out.println("Guarde");
         Desconectar();
@@ -51,10 +54,10 @@ public class Consultas extends DBconnection{
         Desconectar();
     }
     
-    public List<Contacto> Buscar() throws SQLException, ClassNotFoundException{
+    public List<Contacto> Buscar(int id) throws SQLException, ClassNotFoundException{
         Conectar();
         ArrayList<Contacto> contacto= new ArrayList<>(); 
-        String sql="select * from contacto  where status = 0 order by nombre";
+        String sql="select * from contacto  where status = 0 and usuario_id=" + id+" order by nombre";
         estado= con.prepareStatement(sql);
         rs= estado.executeQuery();
         while(rs.next()){

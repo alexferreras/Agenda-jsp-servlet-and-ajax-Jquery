@@ -1,17 +1,7 @@
-<%-- 
-    Document   : Inicio
-    Created on : 08-dic-2017, 19:41:48
-    Author     : alexf
---%>
 
-<%@page import="java.util.Iterator"%>
-<%@page import="java.util.List"%>
-<%@page import="java.sql.SQLException"%>
-<%@page import="java.util.ArrayList"%>
-<%@page import="Clases.Contacto"%>
-<%@page import="Clases.Consultas"%>
+<%@page import="Pojo.Usuario"%>
+<%@page import="Clases.UsuarioDao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<!DOCTYPE html>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -24,8 +14,9 @@
 
     <title>Do something diferent</title>
     <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="css/estilos.css" rel="stylesheet">
+      <script src="Js/jquery.min.js"></script>
     <!-- jQuery called-->
     
   
@@ -50,16 +41,16 @@
       
       <ul class="nav navbar-nav navbar-right">
            <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.jsp?page=AgregarContacto">Agregar Contacto</a>
+               <a class="nav-link js-scroll-trigger hide" id="ag" href="index.jsp?page=AgregarContacto">Agregar Contacto</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.jsp?page=Registrar">Registrarse</a>
+                        <a class="nav-link js-scroll-trigger" id="reg" href="index.jsp?page=Registrar">Registrarse</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link js-scroll-trigger" href="index.jsp?page=Login">Loguiarse</a>
+                        <a class="nav-link js-scroll-trigger" id="log"  href="index.jsp?page=login" id="login">Loguiarse</a>
                     </li>
         <li class="nav-item">
-           <a class="nav-link js-scroll-trigger" href="#contact">Salir</a>
+            <a class="nav-link js-scroll-trigger hide" id="salir" href="#contact">Salir</a>
         </li>
       </ul>
    
@@ -69,21 +60,48 @@
     <div class="col col-sm-2"></div>
     <div class="container col col-sm-8" style="margin-top: 100px;">
         <%
-            String pages= "inicio";
-           
-        if(request.getParameter("page")!=null){
-         pages =request.getParameter("page");
-        }
+            String pages= "login";
+            Usuario user = (Usuario) session.getAttribute("usuario");
+            
+                 if(request.getParameter("page")!=null && request.getParameter("page").equals("Registrar")){
+                        pages =request.getParameter("page");
+                    }
+             if(user != null)
+             {
+                int id=  user.getId();
+            
+                if(id >0)
+                {
+                    %>
+                    <script type="text/javascript"> 
+                       $("#reg").addClass("hide");
+                       $("#log").addClass("hide");
+                       $("#ag").removeClass("hide");
+                       $("#salir").removeClass("hide");
+                       </script>
+                    <%
+                    pages= "inicio";
+                    if(request.getParameter("page")!=null)
+                    {
+                         pages =request.getParameter("page");
+                    }
+                }
+             
+            }
         pages="WEB-INF/"+pages+".jsp";
         %>
         <jsp:include page="<%=pages%>"></jsp:include>
       
        
     </div>
-        <div class="col col-sm-2"></div>       
+        
+        
+        
+        
+    
   
     
-    <script src="Js/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="Js/main.js"></script>
 </body>
 
